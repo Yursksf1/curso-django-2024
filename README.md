@@ -9,3 +9,4 @@ Participantes:
 - Johan Carvajal: [HavertzZ04](https://github.com/HavertzZ04) 
 - Jasmel Blanco: [Jhansakai](https://github.com/Jhansakai)
 - Yezid Blanco: [YezidBlanco](https://github.com/YezidBlanco)
+- Dino Herrera: [dinoherrera](https://github.com/dinoherrera)
