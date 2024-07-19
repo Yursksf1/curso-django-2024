@@ -8,3 +8,13 @@ class Person(models.Model):
 
     def __str__(self):
         return self.first_name
+    
+
+# referencia para crear modelos: 
+# https://docs.djangoproject.com/en/5.0/ref/models/fields
+# https://docs.djangoproject.com/en/5.0/ref/models/fields/#django.db.models.IntegerField
+
+# Producto 
+# -- nombre del producto
+# -- valor de compra
+# -- valor de venta 
