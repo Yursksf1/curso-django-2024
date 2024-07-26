@@ -17,14 +17,24 @@ class Product(models.Model):
     buy_price = models.IntegerField()
     sell_price = models.IntegerField()
     stock = models.IntegerField()
-    
+    inventario = models.IntegerField()
+
     def __str__(self):
         return f"{self.product_name}"
-# referencia para crear modelos: 
-# https://docs.djangoproject.com/en/5.0/ref/models/fields
-# https://docs.djangoproject.com/en/5.0/ref/models/fields/#django.db.models.IntegerField
 
-# Producto 
-# -- nombre del producto
-# -- valor de compra
-# -- valor de venta 
+
+class Carrito(models.Model):
+    person = models.ForeignKey(Person, on_delete=models.CASCADE, default=None, null=True, blank=True)
+    name = models.CharField(max_length=128)
+    productos = models.ManyToManyField(Product, through="ItemCarrito")
+
+    def __str__(self):
+        return self.name
+
+class ItemCarrito(models.Model):
+    producto = models.ForeignKey(Product, on_delete=models.CASCADE)
+    carrito = models.ForeignKey(Carrito, on_delete=models.CASCADE)
+    cantidad = models.IntegerField()
+    
+    def __str__(self):
+        return "{} {} {}".format(self.carrito.name, self.producto.product_name,  self.cantidad)
