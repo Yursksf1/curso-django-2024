@@ -4,7 +4,16 @@ from myapp.models import Product
 
 # Create your views here.
 
+
 def index(request):
+    porductos = Product.objects.all()
+    context = {
+        "numero_productos": len(porductos),
+        "productos": porductos,
+    }
+    return render(request, "myapp/index.html", context)
+
+def index_2(request):
     porductos = Product.objects.all()
     productos_base_html = """
         <div class="col-sm-4">
@@ -78,7 +87,7 @@ def index(request):
     return HttpResponse(html)
 
 
-def index_2(request):
+def index_3(request):
     html = """<!DOCTYPE html>
 <html lang="en">
 <head>
