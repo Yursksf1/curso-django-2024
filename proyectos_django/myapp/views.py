@@ -5,13 +5,13 @@ from myapp.models import Product, Person
 # Create your views here.
 
 
-def index(request):
+def get_productos(request):
     porductos = Product.objects.all()
     context = {
         "numero_productos": len(porductos),
         "productos": porductos,
     }
-    return render(request, "myapp/index.html", context)
+    return render(request, "myapp/productos_list.html", context)
 
 
 def get_customers(request):
@@ -21,6 +21,13 @@ def get_customers(request):
         "clientes": clientes,
     }
     return render(request, "myapp/customer_list.html", context)
+
+
+def index(request):
+    context = {
+    }
+    return render(request, "myapp/index.html", context)
+
 
 def index_2(request):
     porductos = Product.objects.all()
