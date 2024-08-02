@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from myapp.models import Product
+from myapp.models import Product, Person
 
 # Create your views here.
 
@@ -12,6 +12,15 @@ def index(request):
         "productos": porductos,
     }
     return render(request, "myapp/index.html", context)
+
+
+def get_customers(request):
+    clientes = Person.objects.all()
+    context = {
+        "numero_clientes": len(clientes),
+        "clientes": clientes,
+    }
+    return render(request, "myapp/customer_list.html", context)
 
 def index_2(request):
     porductos = Product.objects.all()

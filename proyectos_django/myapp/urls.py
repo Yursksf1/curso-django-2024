@@ -21,4 +21,5 @@ from myapp import views
 urlpatterns = [
     path('', views.index),
     path('page_2', views.index_2),
+    path('get_customers', views.get_customers),
 ]
