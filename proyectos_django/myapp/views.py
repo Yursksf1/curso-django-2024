@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from myapp.models import Product, Person
+from myapp.models import Product, Person, Carrito
 
 # Create your views here.
 
@@ -21,6 +21,14 @@ def get_customers(request):
         "clientes": clientes,
     }
     return render(request, "myapp/customer_list.html", context)
+
+def get_carritos(request):
+    carritos = Carrito.objects.all()
+    context = {
+        "numero_carritos": len(carritos),
+        "carritos": carritos,
+    }
+    return render(request, "myapp/carrito_list.html", context)
 
 
 def index(request):
