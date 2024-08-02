@@ -11,6 +11,7 @@
   <table class="table">
     <thead>
       <tr>
+        <th>ID carrito</th>
         <th>Nombre del carrito</th>
         <th>Propietario</th>
         <th>cantidad de productos</th>
@@ -19,6 +20,7 @@
     <tbody>
       {% for carrito in carritos %}
         <tr>
+          <td>  <a href="/get_carritos/{{carrito.id}}">{{ carrito.id }}</a> </td>
           <td> {{ carrito.name }} </td>
           <td> {{ carrito.person }}</td>
           <td> {{ carrito.productos.all |length  }}</td>

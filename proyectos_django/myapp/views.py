@@ -30,6 +30,17 @@ def get_carritos(request):
     }
     return render(request, "myapp/carrito_list.html", context)
 
+def get_carrito_detail(request, id):
+    carrito = Carrito.objects.filter(id=id).first()
+    productos = carrito.productos.all()
+    context = {
+        "carrito": carrito,
+        "numero_productos": len(productos),
+        "productos": productos,
+    }
+    return render(request, "myapp/carrito_detail.html", context)
+
+
 
 def index(request):
     context = {
