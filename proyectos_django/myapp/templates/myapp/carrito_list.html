@@ -21,7 +21,7 @@
         <tr>
           <td> {{ carrito.name }} </td>
           <td> {{ carrito.person }}</td>
-          <td> {{ 0 }}</td>
+          <td> {{ carrito.productos.all |length  }}</td>
         </tr>
       {% endfor %}
 
